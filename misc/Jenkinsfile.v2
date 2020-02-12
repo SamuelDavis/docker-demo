@@ -2,7 +2,7 @@ node {
    def commit_id
    stage('Preparation') {
      checkout scm
-     commit_id = sh -c "git rev-parse --short HEAD > .git/commit-id"
+     commit_id = sh "git rev-parse --short HEAD > .git/commit-id"
    }
    stage('test') {
      def myTestContainer = docker.image('node:4.6')
